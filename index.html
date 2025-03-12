@@ -6,21 +6,29 @@
     <title>WhatsApp Chat Analyzer</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
-    <header>
-      <h1>WhatsApp Chat Analyzer</h1>
-      <p>Made with ❤️ by Ishan</p>
-    </header>
+    <div class="main-container">
+      <!-- Sidebar for Metadata -->
+      <div class="sidebar">
+        <header>WhatsApp Chat Analyzer<br />Made with ❤️ by Ishan</header>
+        <div class="input-section">
+          <input type="file" id="fileInput" />
+          <textarea
+            id="chatInput"
+            placeholder="Paste chat text here..."
+          ></textarea>
+          <input type="text" id="chatSearch" placeholder="Search chat..." />
 
-    <div class="input-section">
-      <input type="file" id="fileInput" accept=".txt" />
-      <textarea id="chatInput" placeholder="Paste chat data here..."></textarea>
-      <button onclick="analyzeChat()">Analyze</button>
-    </div>
+          <button id="analyzeButton">Analyze</button>
+        </div>
+        <div id="chatMetadata" class="chat-metadata"></div>
+      </div>
 
-    <div class="chat-container" id="chatContainer">
-      <div class="chat-metadata" id="chatMetadata"></div>
-      <div class="chat-messages" id="chatMessages"></div>
+      <!-- Chat Messages Section -->
+      <div class="chat-container">
+        <div id="chatMessages"></div>
+      </div>
     </div>
 
     <script src="script.js"></script>
