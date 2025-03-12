@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp Chat Analyzer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>WhatsApp Chat Analyzer</h1>
+      <p>Made with ❤️ by Ishan</p>
+    </header>
+
+    <div class="input-section">
+      <input type="file" id="fileInput" accept=".txt" />
+      <textarea id="chatInput" placeholder="Paste chat data here..."></textarea>
+      <button onclick="analyzeChat()">Analyze</button>
+    </div>
+
+    <div class="chat-container" id="chatContainer">
+      <div class="chat-metadata" id="chatMetadata"></div>
+      <div class="chat-messages" id="chatMessages"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
