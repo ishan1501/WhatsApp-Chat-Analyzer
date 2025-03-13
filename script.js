@@ -12,7 +12,6 @@ document
   });
 
 // Start analysis only when the "Analyze" button is clicked
-
 document.getElementById("analyzeButton").addEventListener("click", function () {
   const chatText = document.getElementById("chatInput").value;
   processChat(chatText);
@@ -141,9 +140,9 @@ function createMessageElement(message) {
 
   messageDiv.innerHTML = `<strong>${
     message.sender ? message.sender : "Unknown Student/Parent"
-  }</strong><br>${message.text.replace(/\n/g, "<br>")}<time>${
-    message.time
-  }</time>`;
+  }</strong><br>${message.text.replace(/\n/g, "<br>")}<br>
+  <time>${message.date}, ${message.time}</time>`;
+
   return messageDiv;
 }
 
