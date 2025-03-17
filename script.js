@@ -1,13 +1,14 @@
+// When a file is selected, read its content and display it in the text area
 document
   .getElementById("fileInput")
   .addEventListener("change", function (event) {
-    const file = event.target.files[0];
+    const file = event.target.files[0]; // Get the selected file
     if (file) {
-      const reader = new FileReader();
+      const reader = new FileReader(); // Create a new FileReader object
       reader.onload = function (e) {
-        document.getElementById("chatInput").value = e.target.result;
+        document.getElementById("chatInput").value = e.target.result; // Display file content in textarea
       };
-      reader.readAsText(file);
+      reader.readAsText(file); // Read file as text
     }
   });
 
@@ -17,9 +18,12 @@ document.getElementById("analyzeButton").addEventListener("click", function () {
   processChat(chatText);
 });
 
+// Function to process the chat text
 function processChat(chatText) {
   const chatMessages = document.getElementById("chatMessages");
   const chatMetadata = document.getElementById("chatMetadata");
+
+  // Clear previous messages and metadata
   chatMessages.innerHTML = "";
   chatMetadata.innerHTML = "";
 
@@ -33,6 +37,7 @@ function processChat(chatText) {
   let startDate = null;
   let endDate = null;
 
+  // Loop through each line of the chat text
   lines.forEach((line) => {
     const message = parseMessage(line);
     if (message) {
@@ -41,6 +46,7 @@ function processChat(chatText) {
 
       let sender = message.sender ? message.sender.toLowerCase() : "";
 
+      // Categorizing senders based on their role
       if (sender.includes("kam")) {
         admissionOfficers.add(message.sender);
       } else if (sender.includes("ewyl")) {
@@ -53,12 +59,13 @@ function processChat(chatText) {
         studentContacts.add("Unknown Student/Parent");
       }
 
+      // Store previous message
       if (currentMessage) {
         messages.push(currentMessage);
       }
       currentMessage = message;
     } else if (currentMessage) {
-      currentMessage.text += "\n" + line;
+      currentMessage.text += "\n" + line; // Append multiline messages
     }
   });
 
@@ -66,8 +73,10 @@ function processChat(chatText) {
     messages.push(currentMessage);
   }
 
+  // Calculate duration of conversation
   const totalDays = calculateDaysDifference(startDate, endDate);
 
+  // Display metadata information
   chatMetadata.innerHTML = `
       <p><strong>Admission Officers (KAM):</strong> ${Array.from(
         admissionOfficers
@@ -86,12 +95,13 @@ function processChat(chatText) {
       <p><strong>Total Days to Completion:</strong> ${totalDays} days</p>
   `;
 
+  // Display chat messages
   messages.forEach((msg) => {
     chatMessages.appendChild(createMessageElement(msg));
   });
 }
 
-// Chat Search Functionality
+// Chat search functionality
 document.getElementById("chatSearch").addEventListener("input", function () {
   const searchText = this.value.toLowerCase();
   const messages = document.querySelectorAll(".message");
@@ -105,6 +115,7 @@ document.getElementById("chatSearch").addEventListener("input", function () {
   });
 });
 
+// Function to parse a chat message line
 function parseMessage(line) {
   const regex =
     /(\d{2}\/\d{2}\/\d{2}), (\d{1,2}:\d{2}\s?(?:AM|PM|am|pm| [APap][Mm])) - (.+?): (.+)/;
@@ -120,6 +131,7 @@ function parseMessage(line) {
   return null;
 }
 
+// Function to create a message element in the chat UI
 function createMessageElement(message) {
   const messageDiv = document.createElement("div");
   messageDiv.classList.add("message");
@@ -146,17 +158,17 @@ function createMessageElement(message) {
   return messageDiv;
 }
 
+// Function to check if a sender is a phone number
 function isPhoneNumber(sender) {
   return /^\+?\d{7,15}$/.test(sender.replace(/\s+/g, ""));
 }
 
+// Function to calculate the number of days between start and end dates
 function calculateDaysDifference(start, end) {
   if (!start || !end) return "N/A";
-
   const [sDay, sMonth, sYear] = start.split("/").map(Number);
   const [eDay, eMonth, eYear] = end.split("/").map(Number);
   const startDate = new Date(2000 + sYear, sMonth - 1, sDay);
   const endDate = new Date(2000 + eYear, eMonth - 1, eDay);
-  const diffTime = Math.abs(endDate - startDate);
-  return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
 }

@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Character encoding to support special characters -->
     <meta charset="UTF-8" />
+    <!-- Ensures the page is responsive on all devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WhatsApp Chat Analyzer</title>
+    <!-- Linking the external CSS file for styling -->
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
+    <!-- Main container that holds both the sidebar and chat messages -->
     <div class="main-container">
-      <!-- Sidebar for Metadata -->
+      <!-- Sidebar section for uploading chats and showing metadata -->
       <div class="sidebar">
         <header>WhatsApp Chat Analyzer<br />Made with ❤️ by Ishan</header>
         <div class="input-section">
+          <!-- File input for uploading chat text files -->
           <input type="file" id="fileInput" />
+          <!-- Text area for pasting chat messages manually -->
           <textarea
             id="chatInput"
             placeholder="Paste chat text here..."
           ></textarea>
+          <!-- Search input for searching through chat messages -->
           <input type="text" id="chatSearch" placeholder="Search chat..." />
-
+          <!-- Button to trigger chat analysis -->
           <button id="analyzeButton">Analyze</button>
         </div>
+        <!-- Section to display metadata about the chat -->
         <div id="chatMetadata" class="chat-metadata"></div>
       </div>
 
-      <!-- Chat Messages Section -->
+      <!-- Chat messages section -->
       <div class="chat-container">
         <div id="chatMessages"></div>
       </div>
     </div>
 
+    <!-- Linking the JavaScript file for functionality -->
     <script src="script.js"></script>
   </body>
 </html>
