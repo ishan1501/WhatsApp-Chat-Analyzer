@@ -1,4 +1,3 @@
-// When a file is selected, read its content and display it in the text area
 document
   .getElementById("fileInput")
   .addEventListener("change", function (event) {
@@ -162,4 +161,26 @@ function calculateDaysDifference(start, end) {
   const startDate = new Date(2000 + sYear, sMonth - 1, sDay);
   const endDate = new Date(2000 + eYear, eMonth - 1, eDay);
   return Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+}
+
+// Add search functionality
+document.getElementById("chatSearch").addEventListener("input", function () {
+  const searchTerm = document.getElementById("chatSearch").value.toLowerCase();
+  searchChatMessages(searchTerm);
+});
+
+// Function to search through the chat messages
+function searchChatMessages(searchTerm) {
+  const chatMessages = document.getElementById("chatMessages");
+  const messages = chatMessages.getElementsByClassName("message");
+
+  // Loop through all messages and display only those that match the search term
+  Array.from(messages).forEach((messageDiv) => {
+    const messageText = messageDiv.innerText.toLowerCase();
+    if (messageText.includes(searchTerm)) {
+      messageDiv.style.display = "block"; // Show matching messages
+    } else {
+      messageDiv.style.display = "none"; // Hide non-matching messages
+    }
+  });
 }
