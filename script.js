@@ -101,31 +101,22 @@ function processChat(chatText) {
   });
 }
 
-// Chat search functionality
-document.getElementById("chatSearch").addEventListener("input", function () {
-  const searchText = this.value.toLowerCase();
-  const messages = document.querySelectorAll(".message");
-
-  messages.forEach((msg) => {
-    if (msg.textContent.toLowerCase().includes(searchText)) {
-      msg.style.display = "block";
-    } else {
-      msg.style.display = "none";
-    }
-  });
-});
-
 // Function to parse a chat message line
 function parseMessage(line) {
   const regex =
-    /(\d{2}\/\d{2}\/\d{2}), (\d{1,2}:\d{2}\s?(?:AM|PM|am|pm| [APap][Mm])) - (.+?): (.+)/;
+    /(\d{2}\/\d{2}\/\d{2}), (\d{1,2}:\d{2}\s?(?:AM|PM|am|pm|\u202F[APap][Mm])) - (.+?): (.+)/;
   const match = line.match(regex);
   if (match) {
+    let text = match[4].trim();
+    text = text.replace(/\*(.*?)\*/g, "<strong>$1</strong>"); // Convert *bold* to <strong>bold</strong>
+    text = text.replace(/\n/g, "<br>"); // Preserve line breaks
+    text = text.replace(/\*/g, ""); // Ensure unpaired * are removed
+    text = text.includes("<Media omitted>") ? "[Media File]" : text; // Replace omitted media with placeholder
     return {
       date: match[1],
       time: match[2].replace(/\u202F/g, " "),
       sender: match[3].trim(),
-      text: match[4].trim(),
+      text: text,
     };
   }
   return null;
@@ -152,7 +143,7 @@ function createMessageElement(message) {
 
   messageDiv.innerHTML = `<strong>${
     message.sender ? message.sender : "Unknown Student/Parent"
-  }</strong><br>${message.text.replace(/\n/g, "<br>")}<br>
+  }</strong><br>${message.text}<br>
   <time>${message.date}, ${message.time}</time>`;
 
   return messageDiv;

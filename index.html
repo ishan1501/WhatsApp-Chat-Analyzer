@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Character encoding to support special characters -->
     <meta charset="UTF-8" />
-    <!-- Ensures the page is responsive on all devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WhatsApp Chat Analyzer</title>
-    <!-- Linking the external CSS file for styling -->
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <!-- Main container that holds both the sidebar and chat messages -->
+    <!-- Main container holding the sidebar and chat messages -->
     <div class="main-container">
-      <!-- Sidebar section for uploading chats and showing metadata -->
+      <!-- Sidebar for file upload, input, and metadata -->
       <div class="sidebar">
         <header>WhatsApp Chat Analyzer<br />Made with ❤️ by Ishan</header>
+
         <div class="input-section">
-          <!-- File input for uploading chat text files -->
+          <!-- Custom file upload button -->
+          <label for="fileInput" class="file-upload-label"
+            >Upload Chat File</label
+          >
           <input type="file" id="fileInput" />
-          <!-- Text area for pasting chat messages manually -->
+
+          <!-- Textarea for manual chat input -->
           <textarea
             id="chatInput"
             placeholder="Paste chat text here..."
           ></textarea>
-          <!-- Search input for searching through chat messages -->
+
+          <!-- Search bar for filtering chat messages -->
           <input type="text" id="chatSearch" placeholder="Search chat..." />
-          <!-- Button to trigger chat analysis -->
+
+          <!-- Button to analyze chat -->
           <button id="analyzeButton">Analyze</button>
         </div>
-        <!-- Section to display metadata about the chat -->
+
+        <!-- Chat metadata display -->
         <div id="chatMetadata" class="chat-metadata"></div>
       </div>
 
-      <!-- Chat messages section -->
+      <!-- Chat messages display area -->
       <div class="chat-container">
         <div id="chatMessages"></div>
       </div>
     </div>
 
-    <!-- Linking the JavaScript file for functionality -->
     <script src="script.js"></script>
   </body>
 </html>

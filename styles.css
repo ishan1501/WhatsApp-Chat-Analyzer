@@ -1,9 +1,7 @@
 /* Global Styles */
-
-/* Apply a clean font and background color similar to WhatsApp */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #e5ddd5;
+  background-color: #efeae2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +9,7 @@ body {
   margin: 0;
 }
 
-/* Main Container - Holds Sidebar and Chat Section */
+/* Main Container */
 .main-container {
   display: flex;
   flex-direction: row;
@@ -23,35 +21,59 @@ body {
   overflow: hidden;
 }
 
-/* Sidebar - Contains metadata and file input */
+/* Sidebar */
 .sidebar {
-  flex: 0 0 30%; /* 30% width for sidebar */
-  background-color: #111b21;
-  color: white;
+  flex: 0 0 30%;
+  background-color: #ffffff;
+  color: #111b21;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  border-right: 1px solid #d1d7db;
 }
 
-/* Header inside sidebar */
+/* Sidebar Header */
 .sidebar header {
   background-color: #008069;
   text-align: center;
   padding: 15px;
   font-size: 18px;
   font-weight: bold;
+  color: white;
 }
 
-/* Input Section - File input, textarea, search, and button */
+/* Input Section */
 .input-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 15px;
-  background-color: #202c33;
+  background-color: #f0f2f5;
 }
 
-/* Styling for inputs, textarea, and button */
+/* File Upload Button */
+input[type="file"] {
+  display: none;
+}
+
+.file-upload-label {
+  width: 90%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #25d366; /* WhatsApp Green */
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.file-upload-label:hover {
+  background-color: #1ebe5b;
+}
+
+/* Styling for Inputs & Buttons */
 input,
 textarea,
 button {
@@ -63,107 +85,102 @@ button {
   border: none;
 }
 
-/* Search bar styling */
 #chatSearch {
-  width: 90%;
-  margin: 8px 0;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-/* Analyze button styles */
+/* Analyze Button */
 button {
-  background-color: #25d366; /* WhatsApp green */
+  background-color: #25d366;
   color: white;
   cursor: pointer;
   font-weight: bold;
 }
 
-/* Hover effect on the button */
 button:hover {
   background-color: #1ebe5b;
 }
 
-/* Chat metadata container */
+/* Chat Metadata */
 .chat-metadata {
   flex-grow: 1;
   padding: 15px;
   font-size: 14px;
-  background-color: #111b21;
-  color: white;
+  background-color: #ffffff;
+  color: #111b21;
   overflow-y: auto;
 }
 
-/* Chat container */
+/* Chat Container */
 .chat-container {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #e5ddd5;
+  background-color: #efeae2;
   padding: 20px;
   overflow-y: auto;
   overflow-x: hidden;
   word-wrap: break-word;
 }
 
-/* Chat message styles */
+/* Message Styles */
 .message {
   max-width: 70%;
   margin: 8px 0;
-  padding: 10px;
+  padding: 12px;
   border-radius: 10px;
   font-size: 14px;
   line-height: 1.4;
   position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Left-aligned messages (Admission Officers, Mentors, Sales Counselors) */
 .left-align {
   align-self: flex-start;
-  background-color: #dcf8c6; /* Light green */
+  background-color: #ffffff; /* White */
+  border: 1px solid #d1d7db;
 }
 
 /* Right-aligned messages (Students/Parents) */
 .right-align {
   align-self: flex-end;
   text-align: left;
-  background-color: #e6e6e6;
+  background-color: #dcf8c6; /* Soft Green */
   margin-left: auto;
 }
 
-/* Specific colors for different sender roles */
+/* Improved Colors for Different Sender Roles */
 .admission-officer {
-  background-color: #d1e7ff; /* Light blue */
+  background-color: #e1f5fe; /* Light Sky Blue */
 }
 
 .ewyl {
-  background-color: #ffeb99; /* Light yellow */
+  background-color: #fff9c4; /* Soft Yellow */
 }
 
 .sales {
-  background-color: #ffcccb; /* Light red */
+  background-color: #ffebee; /* Light Pink */
 }
 
-/* Ensure student/parent messages are on the right */
+/* Student/Parent messages (better contrast) */
 .student {
-  background-color: #cfe9ba; /* Light green */
+  background-color: #d0f0c0; /* Softer Green */
   align-self: flex-end;
   text-align: left;
   margin-left: auto;
 }
 
-/* Message time styling */
+/* Message Timestamp */
 .message time {
   display: block;
   font-size: 12px;
-  color: #666;
+  color: #667781;
   margin-top: 5px;
   text-align: right;
 }
 
-/* Custom scrollbar styles */
+/* Custom Scrollbars */
 .chat-container::-webkit-scrollbar,
 .chat-metadata::-webkit-scrollbar {
   width: 10px;
