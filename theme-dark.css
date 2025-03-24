@@ -1,7 +1,8 @@
-/* Global Styles */
+/* Dark Mode Theme */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #efeae2;
+  background-color: #121212;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +17,7 @@ body {
   width: 100%;
   max-width: 1920px;
   height: 100vh;
-  background-color: #fff;
+  background-color: #1e1e1e;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
@@ -24,22 +25,22 @@ body {
 /* Sidebar */
 .sidebar {
   flex: 0 0 30%;
-  background-color: #ffffff;
-  color: #111b21;
+  background-color: #2d2d2d;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  border-right: 1px solid #d1d7db;
+  border-right: 1px solid #444;
 }
 
 /* Sidebar Header */
 .sidebar header {
-  background-color: #008069;
+  background-color: #333;
   text-align: center;
   padding: 15px;
   font-size: 18px;
   font-weight: bold;
-  color: white;
+  color: #ffffff;
 }
 
 /* Input Section */
@@ -48,7 +49,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 15px;
-  background-color: #f0f2f5;
+  background-color: #2d2d2d;
 }
 
 /* Theme Selector */
@@ -57,30 +58,33 @@ body {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #444;
   margin-bottom: 10px;
+  background-color: #333;
+  color: #ffffff;
 }
 
 /* File Upload Button */
 input[type="file"] {
-  display: none;
+  display: none; /* Hide the default file input */
 }
 
 .file-upload-label {
   width: 90%;
   padding: 12px;
   font-size: 16px;
-  background-color: #25d366;
+  background-color: #444;
   color: white;
   text-align: center;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
   display: inline-block;
+  margin-bottom: 10px; /* Add spacing below the button */
 }
 
 .file-upload-label:hover {
-  background-color: #1ebe5b;
+  background-color: #555; /* Darker shade on hover */
 }
 
 /* Styling for Inputs & Buttons */
@@ -93,22 +97,24 @@ button {
   font-size: 16px;
   border-radius: 5px;
   border: none;
+  background-color: #333;
+  color: #ffffff;
 }
 
 #chatSearch {
-  border: 1px solid #ccc;
+  border: 1px solid #444;
 }
 
 /* Analyze Button */
 button {
-  background-color: #25d366;
+  background-color: #444;
   color: white;
   cursor: pointer;
   font-weight: bold;
 }
 
 button:hover {
-  background-color: #1ebe5b;
+  background-color: #555;
 }
 
 /* Chat Metadata */
@@ -116,8 +122,8 @@ button:hover {
   flex-grow: 1;
   padding: 15px;
   font-size: 14px;
-  background-color: #ffffff;
-  color: #111b21;
+  background-color: #2d2d2d;
+  color: #ffffff;
   overflow-y: auto;
 }
 
@@ -126,7 +132,7 @@ button:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #efeae2;
+  background-color: #1e1e1e;
   padding: 20px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -148,35 +154,41 @@ button:hover {
 /* Left-aligned messages */
 .left-align {
   align-self: flex-start;
-  background-color: #ffffff;
-  border: 1px solid #d1d7db;
+  background-color: #333;
+  color: #ffffff;
+  border: 1px solid #444;
 }
 
 /* Right-aligned messages */
 .right-align {
   align-self: flex-end;
   text-align: left;
-  background-color: #dcf8c6;
+  background-color: #0078d7;
+  color: white;
   margin-left: auto;
 }
 
 /* Improved Colors for Different Sender Roles */
 .admission-officer {
-  background-color: #e1f5fe;
+  background-color: #555;
+  color: #ffffff;
 }
 
 .ewyl {
-  background-color: #fff9c4;
+  background-color: #666;
+  color: #ffffff;
 }
 
 .sales {
-  background-color: #ffebee;
+  background-color: #777;
+  color: #ffffff;
 }
 
 .student {
-  background-color: #d0f0c0;
+  background-color: #0078d7;
   align-self: flex-end;
   text-align: left;
+  color: white;
   margin-left: auto;
 }
 
@@ -184,7 +196,7 @@ button:hover {
 .message time {
   display: block;
   font-size: 12px;
-  color: #667781;
+  color: #ffffff; /* Changed to white for better visibility */
   margin-top: 5px;
   text-align: right;
 }
@@ -197,15 +209,6 @@ button:hover {
 
 .chat-container::-webkit-scrollbar-thumb,
 .chat-metadata::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-}
-.chat-metadata {
-  flex-grow: 1;
-  padding: 15px;
-  font-size: 14px;
-  background-color: #f7f7f7; /* Light gray background */
-  color: #111b21;
-  overflow-y: auto;
-  border-left: 1px solid #d1d7db;
 }

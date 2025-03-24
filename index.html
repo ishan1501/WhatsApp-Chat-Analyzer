@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WhatsApp Chat Analyzer</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link id="themeStylesheet" rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
@@ -15,20 +15,34 @@
         <header>WhatsApp Chat Analyzer<br />Made with ❤️ by Ishan</header>
 
         <div class="input-section">
+          <!-- Theme Selector -->
+          <label for="themeSelector">Select Theme:</label>
+          <select id="themeSelector">
+            <option value="styles.css">Default</option>
+            <option value="theme-imessage.css">iMessage</option>
+            <option value="theme-dark.css">Dark</option>
+          </select>
+
           <!-- Custom file upload button -->
-          <label for="fileInput" class="file-upload-label"
-            >Upload Chat File</label
-          >
-          <input type="file" id="fileInput" />
+          <label for="fileInput" class="file-upload-label">
+            Upload Chat File
+          </label>
+          <input type="file" id="fileInput" accept=".txt" />
 
           <!-- Textarea for manual chat input -->
           <textarea
             id="chatInput"
             placeholder="Paste chat text here..."
+            rows="6"
           ></textarea>
 
           <!-- Search bar for filtering chat messages -->
-          <input type="text" id="chatSearch" placeholder="Search chat..." />
+          <input
+            type="text"
+            id="chatSearch"
+            placeholder="Search chat..."
+            aria-label="Search chat messages"
+          />
 
           <!-- Button to analyze chat -->
           <button id="analyzeButton">Analyze</button>

@@ -1,7 +1,7 @@
-/* Global Styles */
+/* iMessage Theme */
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #efeae2;
+  font-family: "San Francisco", Arial, sans-serif;
+  background-color: #e5e5ea;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +16,7 @@ body {
   width: 100%;
   max-width: 1920px;
   height: 100vh;
-  background-color: #fff;
+  background-color: #ffffff;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
@@ -24,8 +24,8 @@ body {
 /* Sidebar */
 .sidebar {
   flex: 0 0 30%;
-  background-color: #ffffff;
-  color: #111b21;
+  background-color: #f7f7f7;
+  color: #000000;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -34,7 +34,7 @@ body {
 
 /* Sidebar Header */
 .sidebar header {
-  background-color: #008069;
+  background-color: #007aff;
   text-align: center;
   padding: 15px;
   font-size: 18px;
@@ -48,7 +48,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 15px;
-  background-color: #f0f2f5;
+  background-color: #f2f2f7;
 }
 
 /* Theme Selector */
@@ -70,7 +70,7 @@ input[type="file"] {
   width: 90%;
   padding: 12px;
   font-size: 16px;
-  background-color: #25d366;
+  background-color: #007aff;
   color: white;
   text-align: center;
   border-radius: 5px;
@@ -80,7 +80,7 @@ input[type="file"] {
 }
 
 .file-upload-label:hover {
-  background-color: #1ebe5b;
+  background-color: #005ecb;
 }
 
 /* Styling for Inputs & Buttons */
@@ -101,14 +101,14 @@ button {
 
 /* Analyze Button */
 button {
-  background-color: #25d366;
+  background-color: #007aff;
   color: white;
   cursor: pointer;
   font-weight: bold;
 }
 
 button:hover {
-  background-color: #1ebe5b;
+  background-color: #005ecb;
 }
 
 /* Chat Metadata */
@@ -126,7 +126,7 @@ button:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #efeae2;
+  background-color: #e5e5ea;
   padding: 20px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -138,45 +138,52 @@ button:hover {
   max-width: 70%;
   margin: 8px 0;
   padding: 12px;
-  border-radius: 10px;
+  border-radius: 16px;
   font-size: 14px;
   line-height: 1.4;
   position: relative;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Left-aligned messages */
+/* Left-aligned messages (Receiver - Light Gray) */
 .left-align {
   align-self: flex-start;
-  background-color: #ffffff;
-  border: 1px solid #d1d7db;
+  background-color: #f0f0f0;
+  color: black;
+  border-radius: 16px;
 }
 
-/* Right-aligned messages */
+/* Right-aligned messages (Sender - iMessage Blue) */
 .right-align {
   align-self: flex-end;
   text-align: left;
-  background-color: #dcf8c6;
+  background-color: #007aff;
+  color: white;
   margin-left: auto;
+  border-radius: 16px;
 }
 
 /* Improved Colors for Different Sender Roles */
 .admission-officer {
-  background-color: #e1f5fe;
+  background-color: #c7c7cc; /* iMessage Gray */
+  color: black;
 }
 
 .ewyl {
-  background-color: #fff9c4;
+  background-color: #c7c7cc; /* Soft Blue */
+  color: black;
 }
 
 .sales {
-  background-color: #ffebee;
+  background-color: #c7c7cc; /* Pastel Green */
+  color: black;
 }
 
 .student {
-  background-color: #d0f0c0;
+  background-color: #007aff;
   align-self: flex-end;
   text-align: left;
+  color: white;
   margin-left: auto;
 }
 
@@ -184,9 +191,14 @@ button:hover {
 .message time {
   display: block;
   font-size: 12px;
-  color: #667781;
+  color: #666666; /* Default color for light gray bubbles */
   margin-top: 5px;
   text-align: right;
+}
+
+/* White timestamp for blue bubbles */
+.right-align time {
+  color: #ffffff; /* White color for blue bubbles */
 }
 
 /* Custom Scrollbars */
@@ -199,13 +211,4 @@ button:hover {
 .chat-metadata::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-}
-.chat-metadata {
-  flex-grow: 1;
-  padding: 15px;
-  font-size: 14px;
-  background-color: #f7f7f7; /* Light gray background */
-  color: #111b21;
-  overflow-y: auto;
-  border-left: 1px solid #d1d7db;
 }

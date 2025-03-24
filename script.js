@@ -1,3 +1,12 @@
+// Theme switching functionality
+document
+  .getElementById("themeSelector")
+  .addEventListener("change", function () {
+    const theme = this.value;
+    document.getElementById("themeStylesheet").setAttribute("href", theme);
+  });
+
+// When a file is selected, read its content and display it in the text area
 document
   .getElementById("fileInput")
   .addEventListener("change", function (event) {
@@ -77,21 +86,19 @@ function processChat(chatText) {
 
   // Display metadata information
   chatMetadata.innerHTML = `
-      <p><strong>Admission Officers (KAM):</strong> ${Array.from(
-        admissionOfficers
-      ).join(", ")}</p>
-      <p><strong>EWYL Mentors:</strong> ${Array.from(ewylMentors).join(
-        ", "
-      )}</p>
-      <p><strong>Sales Counselors:</strong> ${Array.from(salesCounselors).join(
-        ", "
-      )}</p>
-      <p><strong>Student/Parent Contacts:</strong> ${Array.from(
-        studentContacts
-      ).join(", ")}</p>
-      <p><strong>Chat Start Date:</strong> ${startDate}</p>
-      <p><strong>Chat End Date:</strong> ${endDate}</p>
-      <p><strong>Total Days to Completion:</strong> ${totalDays} days</p>
+    <p><strong>Admission Officers (KAM):</strong> ${Array.from(
+      admissionOfficers
+    ).join(", ")}</p>
+    <p><strong>EWYL Mentors:</strong> ${Array.from(ewylMentors).join(", ")}</p>
+    <p><strong>Sales Counselors:</strong> ${Array.from(salesCounselors).join(
+      ", "
+    )}</p>
+    <p><strong>Student/Parent Contacts:</strong> ${Array.from(
+      studentContacts
+    ).join(", ")}</p>
+    <p><strong>Chat Start Date:</strong> ${startDate}</p>
+    <p><strong>Chat End Date:</strong> ${endDate}</p>
+    <p><strong>Total Days to Completion:</strong> ${totalDays} days</p>
   `;
 
   // Display chat messages
